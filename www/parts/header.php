@@ -8,13 +8,16 @@
 		<title><?php echo($config['nazwa']. ' :: '.$config['slogan']);?></title>
 		
 		<!- KODOWANIE, STYL >
-		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link rel='stylesheet' type='text/css' href='style/main.css' />
+		<link rel='stylesheet' type='text/css' href='style/tooltip.css' />
 		<link rel='stylesheet' type='text/css' href='style/menu.css' />
-		
 		<link rel='stylesheet' type='text/css' href='https://bootswatch.com/<?php echo($config['styl']); ?>/bootstrap.min.css' />
+		
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script><style></style>
 		
 	</head>
 	<body>
