@@ -3,9 +3,30 @@ body{
 	font-family: 'Roboto', Thin;
 }
 
+*{
+	font-family: 'Roboto', Thin;
+}
+
 footer {
 	margin-top: 10px;
 	background-color: #00BCD4;
 	color: #E0F7FA;
 	padding: 30px;
+}
+
+#main{
+	width: 900px;
+}
+
+.cssmenu ul{
+	width: 900px;
+}
+
+.cssmenu ul li{
+	float: left;
+}
+
+.cssmenu ul .last{
+	float: right;
+	background-color: #E3F2FD;
 }

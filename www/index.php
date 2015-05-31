@@ -3,8 +3,6 @@
 ?>
 
 
-	// Menu
-	<br>
 	// Ostatnie zakupy
 	<br>
 	// Sklep
