@@ -1,6 +1,5 @@
 body{
 	margin: 0;
-	font-family: 'Roboto', Thin;
 }
 
 *{
@@ -16,6 +15,14 @@ footer {
 
 #main{
 	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.cssmenu {
+	margin-top: -27px;	
+	border-top: 3px solid #d9f3ff;
 }
 
 .cssmenu ul{
@@ -28,5 +35,30 @@ footer {
 
 .cssmenu ul .last{
 	float: right;
-	background-color: #E3F2FD;
+	background-color: #E8F5E9;
+}
+
+.cssmenu ul .last:hover{
+	float: right;
+}
+
+#img_header{
+	background-image: url('../images/header.jpg');
+	height: 300px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 100%;
+	background-color: #e9faff;
+}
+
+@media screen and (max-width: 768px) {
+	.cssmenu ul .last{
+		float: left;
+		background-color: inherit;
+	}
+	#main{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }

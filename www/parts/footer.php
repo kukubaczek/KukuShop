@@ -1,7 +1,7 @@
 		</div> <!- MAIN  >
 		<footer>
 			<!-- ZAKAZ USUWANIE STOPKI! -->
-			Zasilane przez KukuSMS by Kukubaczek.
+			<center>Zasilane przez KukuSMS by Kukubaczek.</center>
 		</footer>
 	</body>
 </html>

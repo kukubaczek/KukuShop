@@ -17,20 +17,21 @@
 		
 	</head>
 	<body>
-		<div class='cssmenu'>
-			<center>
-				<ul>
-					<li class='active'><a href='#'><?php echo($config['nazwa']); ?></a></li>
-					<!--
-						
-						Tutaj możesz dodać swoje zakładki
-						
-					<li><a href='#'>Facebook</a></li>
-					<li><a href='#'>Forum</a></li>
-					
-					-->
-					<li class='last'><a href='#TO-DO'>Użyj Voucher.</a></li>
-				</ul>
-			</center>
-		</div>
+		<center>
+			<div id="img_header"></div>
+		</center>
 		<div id="main">
+			<div class='cssmenu'>
+					<ul>
+						<li class='active'><a href='#'><?php echo($config['nazwa']); ?></a></li>
+						<!--
+							
+							Tutaj możesz dodać swoje zakładki
+							
+						<li><a href='#'>Facebook</a></li>
+						<li><a href='#'>Forum</a></li>
+						
+						-->
+						<li class='last'><a href='#TO-DO'>Użyj Voucher.</a></li>
+					</ul>
+			</div>
