@@ -13,7 +13,8 @@
 		
 		<link rel='stylesheet' type='text/css' href='style/main.css' />
 		<link rel='stylesheet' type='text/css' href='style/menu.css' />
-		<link rel='stylesheet' type='text/css' href='https://bootswatch.com/lumen/bootstrap.min.css' />
+		
+		<link rel='stylesheet' type='text/css' href='https://bootswatch.com/<?php echo($config['styl']); ?>/bootstrap.min.css' />
 		
 	</head>
 	<body>

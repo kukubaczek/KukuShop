@@ -11,10 +11,11 @@ footer {
 	background-color: #00BCD4;
 	color: #E0F7FA;
 	padding: 30px;
+	border-top: 3px solid #4DD0E1;
 }
 
 #main{
-	width: 900px;
+	width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -23,10 +24,11 @@ footer {
 .cssmenu {
 	margin-top: -27px;	
 	border-top: 3px solid #d9f3ff;
+	margin-bottom: 30px;
 }
 
 .cssmenu ul{
-	width: 900px;
+	width: 1000px;
 }
 
 .cssmenu ul li{
@@ -36,10 +38,6 @@ footer {
 .cssmenu ul .last{
 	float: right;
 	background-color: #E8F5E9;
-}
-
-.cssmenu ul .last:hover{
-	float: right;
 }
 
 #img_header{
