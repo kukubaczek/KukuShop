@@ -1,0 +1,11 @@
+body{
+	margin: 0;
+	font-family: 'Roboto', Thin;
+}
+
+footer {
+	margin-top: 10px;
+	background-color: #00BCD4;
+	color: #E0F7FA;
+	padding: 30px;
+}
