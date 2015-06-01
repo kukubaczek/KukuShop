@@ -1,5 +1,5 @@
 <?php
-	include_once('parts/header.php');
+	require_once('parts/header.php');
 ?>
 
 <div class="row">
@@ -12,25 +12,25 @@
 			    <li><a data-toggle="pill" href="#sky">SkyBlock</a></li>
 			  </ul>
 			  
-			  <div class="tab-content">
-			    <div id="surv" class="tab-pane fade in active">
-			      <h3>Survival</h3>
-					<div class="row">
-					  <div class="col-md-3"><center><img src="http://hydra-media.cursecdn.com/minecraft-pl.gamepedia.com/4/41/Chest.gif" width="140px"></center></div>
-					  <div class="col-md-9">// Opis, cena, guzik do kupienia</div>
-					</div>
-					<div class="row">
-					  <div class="col-md-3"><center><img src="http://i.imgur.com/XIjBaYX.gif" width="140px"></center></div>
-					  <div class="col-md-9">// Opis, cena, guzik do kupienia</div>
-					</div>
-			    </div>
-			    <div id="sky" class="tab-pane fade">
-			      <h3>SkyBlock</h3>
-					<div class="row">
-					  <div class="col-md-3">// Obrazek</div>
-					  <div class="col-md-9">// Opis, cena, guzik do kupienia</div>
-					</div>
-			    </div>
+			  <div class="tab-content" id="uslugi">				  		
+				    <div id="surv" class="tab-pane fade in active">
+				      <h2>Survival</h2>
+						<div class="row">
+						  <div class="col-md-3"><center><img src="http://hydra-media.cursecdn.com/minecraft-pl.gamepedia.com/4/41/Chest.gif" width="140px"></center></div>
+						  <div class="col-md-9">// Opis, cena, guzik do kupienia</div>
+						</div>
+						<div class="row">
+						  <div class="col-md-3"><center><img src="http://i.imgur.com/XIjBaYX.gif" width="140px"></center></div>
+						  <div class="col-md-9">// Opis, cena, guzik do kupienia</div>
+						</div>
+				    </div>
+				    <div id="sky" class="tab-pane fade">
+				      <h2>SkyBlock</h2>
+						<div class="row">
+						  <div class="col-md-3">// Obrazek</div>
+						  <div class="col-md-9">// Opis, cena, guzik do kupienia</div>
+						</div>
+				    </div>
 			  </div>
 			</div>
 		</div>
@@ -42,18 +42,28 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>  Statystyki</h3></div>
 			<div class="panel-body">
-				Survival
-				<div class="progress" style="height: 25px;">
-					<div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">
-					190/200
-					</div>
-				</div>
-				SkyBlock
-				<div class="progress" style="height: 25px;">
-					<div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-					50/100
-					</div>
-				</div>
+			  <?php
+			  		include_once ('config/mysql.php');
+			  		
+					$sql = "SELECT id, firstname, lastname FROM MyGuests";
+					$result = $conn->query($sql);
+					
+					if ($result->num_rows > 0) {
+						while($row = $result->fetch_assoc()) {
+							echo($row['nazwa'].'
+								<div class="progress" style="height: 25px;">
+								<div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">
+								190/200
+								</div>
+							</div>
+							');
+					    } 
+					 }else{
+						 echo('Brak serwerów w bazie danych.');
+					 }
+				//	SkyBlock<br>
+				//	<span class="label label-danger">Offline</span>
+				?>
 			</div>
 		</div>
 		
@@ -76,5 +86,5 @@
 	</div>
 </div>
 <?php
-	include_once('parts/footer.php');
+	require_once('parts/footer.php');
 ?>

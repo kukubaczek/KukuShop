@@ -36,6 +36,6 @@
 						<li><a href='#'>Forum</a></li>
 						
 						-->
-						<li class='last'><a href='#TO-DO'>Użyj Voucher.</a></li>
+						<li class='last'><a href='#voucher_modal'>Użyj Voucher.</a></li>
 					</ul>
 			</div>

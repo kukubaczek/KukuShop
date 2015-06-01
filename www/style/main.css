@@ -14,6 +14,11 @@ footer {
 	border-top: 3px solid #4DD0E1;
 }
 
+#uslugi {
+	height: auto;
+	transition: all 1s;
+}
+
 #main{
 	width: 1000px;
 	margin-left: auto;
