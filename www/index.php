@@ -8,12 +8,71 @@
 			<div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>  Usługi możliwe do zakupienia</h3></div>
 			<div class="panel-body">
 			  <ul class="nav nav-pills">
-			    <li class="active"><a data-toggle="pill" href="#surv">Survival</a></li>
-			    <li><a data-toggle="pill" href="#sky">SkyBlock</a></li>
+				<?php
+			  		include_once ('config/mysql.php');
+			  		
+					$sql = "SELECT * FROM servers WHERE status=1";
+					$result = $conn->query($sql);
+			  		
+					if ($result->num_rows > 0) {
+						$num = 0;
+						while($row = $result->fetch_assoc()) {
+							if($num == 0){
+								echo('<li class="active"><a data-toggle="pill" href="#'.$row['server_id'].'">'.$row['nazwa'].'</a></li>');	
+								$num++;
+							}else{
+								echo('<li><a data-toggle="pill" href="#'.$row['server_id'].'">'.$row['nazwa'].'</a></li>');	
+							}
+						}
+					 }else{
+						 echo('Brak serwerów w bazie danych.');
+					 }
+			  		
+				?>
 			  </ul>
 			  
-			  <div class="tab-content" id="uslugi">				  		
-				    <div id="surv" class="tab-pane fade in active">
+			  <div class="tab-content" id="uslugi">	
+				  <?php	
+					$result = $conn->query($sql);
+					if ($result->num_rows > 0) {
+						
+						$num = 0;
+						
+						while($row = $result->fetch_assoc()) {
+							echo('
+							
+								<div id="'.$row['server_id'].'" class="tab-pane fade in');
+								
+								if($num == 0){
+									echo(' active');
+									$num++;
+								}
+								
+								echo('">
+									<h2>'.$row['nazwa'].'</h2>
+									
+									<div class="row">
+										<div class="col-md-6">
+											<div class="thumbnail">
+												<img src="http://fireland.pl/images/svip.jpg" alt="VIP na 30 dni" id="lista_img_uslug">
+												<div class="caption">
+													<h3>VIP na 30 dni</h3>
+													<p>Ta ranga obowiązuje na wszystkich serwerach w sieci.</p>
+													<p><span class="btn btn-default">Cena SMS: <b>11.07zł</b></span> <a id="kupuje" href="#" class="btn btn-info" role="button">Kup teraz!</a></p>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">//TO-DO - dynamiczne usługi</div>
+									</div>
+								</div>
+
+							
+							');
+						}
+					}else{
+						echo('Brak serwerów w bazie danych.');
+					}
+				    /*<div id="surv" class="tab-pane fade in active">
 				      <h2>Survival</h2>
 					  
 						<div class="row">
@@ -37,7 +96,8 @@
 						<div class="row">
 						  <div class="col-md-6">.col-md-6</div>
 						</div>	
-				    </div>
+				    </div>*/
+				    ?>
 			  </div>
 			</div>
 		</div>
@@ -50,11 +110,9 @@
 			<div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>  Statystyki</h3></div>
 			<div class="panel-body">
 			  <?php
-			  		include_once ('config/mysql.php');
 			  					  		
 					include "utils/status.php";
-			  		
-					$sql = "SELECT * FROM servers WHERE status=1";
+					
 					$result = $conn->query($sql);
 					
 					if ($result->num_rows > 0) {
