@@ -6,6 +6,18 @@ body{
 	font-family: 'Roboto', Thin;
 }
 
+#kupuje{
+	float: right;
+}
+
+#lista_img_uslug{
+	width: 100%;
+}
+
+#statusek{
+	float: right;
+}
+
 footer {
 	margin-top: 10px;
 	background-color: #00BCD4;

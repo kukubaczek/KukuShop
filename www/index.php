@@ -15,21 +15,28 @@
 			  <div class="tab-content" id="uslugi">				  		
 				    <div id="surv" class="tab-pane fade in active">
 				      <h2>Survival</h2>
+					  
 						<div class="row">
-						  <div class="col-md-3"><center><img src="http://hydra-media.cursecdn.com/minecraft-pl.gamepedia.com/4/41/Chest.gif" width="140px"></center></div>
-						  <div class="col-md-9">// Opis, cena, guzik do kupienia</div>
-						</div>
-						<div class="row">
-						  <div class="col-md-3"><center><img src="http://i.imgur.com/XIjBaYX.gif" width="140px"></center></div>
-						  <div class="col-md-9">// Opis, cena, guzik do kupienia</div>
+						  <div class="col-md-6">
+							    <div class="thumbnail">
+							      <img src="http://fireland.pl/images/svip.jpg" alt="VIP na 30 dni" id="lista_img_uslug">
+							      <div class="caption">
+							        <h3>VIP na 30 dni</h3>
+							        <p>Ta ranga obowiązuje na wszystkich serwerach w sieci.</p>
+							        <p><span class="btn btn-default">Cena SMS: <b>11.07zł</b></span> <a id="kupuje" href="#" class="btn btn-info" role="button">Kup teraz!</a></p>
+							      </div>
+							    </div>
+						  </div>
+						  <div class="col-md-6">.col-md-6</div>
 						</div>
 				    </div>
 				    <div id="sky" class="tab-pane fade">
-				      <h2>SkyBlock</h2>
+				      <h2>SkyBlock</h2>					
+						
+
 						<div class="row">
-						  <div class="col-md-3">// Obrazek</div>
-						  <div class="col-md-9">// Opis, cena, guzik do kupienia</div>
-						</div>
+						  <div class="col-md-6">.col-md-6</div>
+						</div>	
 				    </div>
 			  </div>
 			</div>
@@ -44,19 +51,20 @@
 			<div class="panel-body">
 			  <?php
 			  		include_once ('config/mysql.php');
+			  					  		
+					include "utils/status.php";
 			  		
-					$sql = "SELECT id, firstname, lastname FROM MyGuests";
+					$sql = "SELECT * FROM servers WHERE status=1";
 					$result = $conn->query($sql);
 					
 					if ($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
-							echo($row['nazwa'].'
-								<div class="progress" style="height: 25px;">
-								<div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">
-								190/200
-								</div>
-							</div>
-							');
+							echo $row['nazwa'];
+							if(getStatus($row['ip'], $row['port_query']) == 1){
+								echo(' <span class="label label-success" id="statusek"> Online</span><br>');
+							}else{
+								echo(' <span class="label label-danger" id="statusek"> Offline</span><br>');
+							}
 					    } 
 					 }else{
 						 echo('Brak serwerów w bazie danych.');

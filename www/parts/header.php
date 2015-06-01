@@ -1,4 +1,7 @@
 <?php
+	$start = microtime();
+?>
+<?php
 	include('config/main.php');
 ?>
 <!DOCTYPE html>
