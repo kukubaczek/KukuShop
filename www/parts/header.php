@@ -2,6 +2,7 @@
 	$start = microtime();
 ?>
 <?php
+	set_include_path('..');
 	include('config/main.php');
 ?>
 <!DOCTYPE html>

@@ -58,7 +58,7 @@
 												<div class="caption">
 													<h3>VIP na 30 dni</h3>
 													<p>Ta ranga obowiązuje na wszystkich serwerach w sieci.</p>
-													<p><span class="btn btn-default">Cena SMS: <b>11.07zł</b></span> <a id="kupuje" href="#" class="btn btn-info" role="button">Kup teraz!</a></p>
+													<p><span class="btn btn-info">Cena SMS: <b>11.07zł</b></span> <a id="kupuje" href="#" class="btn btn-success" role="button">Kup teraz!</a></p>
 												</div>
 											</div>
 										</div>
