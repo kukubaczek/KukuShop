@@ -39,7 +39,7 @@
 			</div>
 		</div>
 					');
-					echo('<meta http-equiv="refresh" content="2; url=index.php" />');
+					echo('<meta http-equiv="refresh" content="2; url='.$config['root'].'index.php" />');
 			}
 
 			?>

@@ -46,7 +46,7 @@
 				  	}else{
 					  	if($_POST['nick'] == "kukubaczek" &&  $_POST['pass'] == "12345"){
 							echo('
-							  <div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  Zalogowano!</h3></div>
+							  <div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Zalogowano!</h3></div>
 							  
 								<div class="panel-body">
 									

@@ -9,7 +9,34 @@
 		 <div class="panel panel-primary">
 				<div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  Panel zarządzania</h3></div>
 				<div class="panel-body">
-					// Logowanie
+					<?php
+						if(!isset($_SESSION['nickname'])){
+							echo('Zaloguj się!');
+						}else{
+							echo('
+							
+						      <ul class="nav nav-pills nav-stacked">
+						        <li class="active"><a href="#">Stronga główna</a></li>
+						        <li class="dropdown">
+						          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Serwery <span class="caret"></span></a>
+						          <ul class="dropdown-menu">
+						            <li><a href="#">Dodaj</a></li>
+						            <li><a href="#">Edytuj</a></li>
+						          </ul>
+						        </li>
+						        <li class="dropdown">
+						          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usługi <span class="caret"></span></a>
+						          <ul class="dropdown-menu">
+						            <li><a href="#">Dodaj</a></li>
+						            <li><a href="#">Edytuj</a></li>
+						          </ul>
+						        </li>
+						        <!-- <li><a href="#">Wyloguj <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li> -->
+						      </ul>
+							
+							');
+						}
+					?>
 				</div>
 		  </div>
 	  </div>
@@ -19,12 +46,12 @@
 				  	if(!isset($_SESSION['nickname'])){
 						
 					echo('
-					  <div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  Wystąpił błąd!</h3></div>
+					  <div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  Brak permisji!</h3></div>
 					  
 						<div class="panel-body">
 							
 							<div class="alert alert-danger" role="alert">
-							  Musisz być zalogowany, aby korzystać z tego panelu! Przenoszenie do strony logowania...
+							  Musisz być zalogowany, aby korzystać z tego panelu!<br> Przenoszenie do strony logowania...
 							</div>
 						
 						</div>

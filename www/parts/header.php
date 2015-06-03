@@ -35,7 +35,7 @@
 		<div id="main">
 			<div class='cssmenu'>
 					<ul>
-						<li class='active'><a href='#'><?php echo($config['nazwa']); ?></a></li>
+						<li class='active'><a href='<?php echo($config['root'].'index.php'); ?>'><?php echo($config['nazwa']); ?></a></li>
 						<!--
 							
 							Tutaj możesz dodać swoje zakładki
@@ -46,7 +46,7 @@
 						-->
 						<?php
 							if(isset($_SESSION['nickname'])){
-								echo('<li><a href="logout.php">Wyloguj się</a></li>');
+								echo('<li><a href="'.$config['root'].'panel/logout.php">'.$_SESSION['nickname'].' <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>');
 							}
 						?>
 						<li class='last'><a href='#voucher_modal'>Użyj Voucher.</a></li>

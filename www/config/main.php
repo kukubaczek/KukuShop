@@ -7,4 +7,6 @@
 
 	$config['styl'] = 'lumen'; // Wybór stylu BootStrapa.
 	
+	$config['root'] = 'http://localhost:8888/KukuShop/www/'; // Tutaj wklej linka do strony głównej sklepu. UWAGA! Bez końcówki index.php! Musi to wskazywać folder strony głównej!
+	
 ?>

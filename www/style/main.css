@@ -37,24 +37,8 @@ footer {
 	margin-right: auto;
 }
 
-
-.cssmenu {
-	margin-top: -27px;	
-	border-top: 3px solid #d9f3ff;
-	margin-bottom: 30px;
-}
-
-.cssmenu ul{
-	width: 1000px;
-}
-
-.cssmenu ul li{
-	float: left;
-}
-
-.cssmenu ul .last{
+#right{
 	float: right;
-	background-color: #E8F5E9;
 }
 
 #img_header{
@@ -68,9 +52,14 @@ footer {
 
 @media screen and (max-width: 768px) {
 	.cssmenu ul .last{
-		float: left;
+		float: none;
 		background-color: inherit;
 	}
+	
+	.cssmenu ul{
+		width: 100%;
+	}
+	
 	#main{
 		width: 100%;
 		margin-left: auto;
