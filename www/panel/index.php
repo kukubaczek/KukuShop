@@ -9,7 +9,7 @@
 		 <div class="panel panel-primary">
 				<div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  Panel zarządzania</h3></div>
 				<div class="panel-body">
-					// Lista
+					// Logowanie
 				</div>
 		  </div>
 	  </div>
@@ -18,26 +18,31 @@
 			  	<?php
 				  	if(!isset($_SESSION['nickname'])){
 						
-						echo('
-			  <div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Logowanie</h3></div>
-			  
-				<div class="panel-body">
-					
-					<form action="zaloguj.php" method="POST">
-					  <div class="form-group">
-					    <label for="exampleInputEmail1">Nick</label>
-					    <input type="text" class="form-control" name="nick" id="exampleInputEmail1" placeholder="Podaj nick">
-					  </div>
-					  <div class="form-group">
-					    <label for="exampleInputPassword1">Hasło</label>
-					    <input type="password" class="form-control" name="pass" id="exampleInputPassword1" placeholder="Podaj hasło">
-					  </div>
-					  <button type="submit" class="btn btn-default" style="float: right;">Zaloguj się</button>
-					</form>
-
-				</div>
+					echo('
+					  <div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  Wystąpił błąd!</h3></div>
+					  
+						<div class="panel-body">
+							
+							<div class="alert alert-danger" role="alert">
+							  Musisz być zalogowany, aby korzystać z tego panelu! Przenoszenie do strony logowania...
+							</div>
+						
+						</div>
+					</div>
 						');
-						  	
+						  
+						echo('<meta http-equiv="refresh" content="2; url=zaloguj.php" />');
+				  	}else{
+						echo('
+						  <div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  Strona główna</h3></div>
+						  
+							<div class="panel-body">
+								
+								Witaj w panelu administratora!
+							
+							</div>
+						</div>
+							');
 				  	}
 				?>
 		  </div>

@@ -44,6 +44,11 @@
 						<li><a href='#'>Forum</a></li>
 						
 						-->
+						<?php
+							if(isset($_SESSION['nickname'])){
+								echo('<li><a href="logout.php">Wyloguj się</a></li>');
+							}
+						?>
 						<li class='last'><a href='#voucher_modal'>Użyj Voucher.</a></li>
 					</ul>
 			</div>
