@@ -1,5 +1,6 @@
 <?php
 	$start = microtime();
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
