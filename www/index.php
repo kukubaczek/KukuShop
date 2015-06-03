@@ -1,4 +1,6 @@
 <?php
+	include ('config/main.php');
+	include ('config/mysql.php');
 	require_once('parts/header.php');
 ?>
 

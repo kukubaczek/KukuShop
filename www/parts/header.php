@@ -1,10 +1,6 @@
 <?php
 	$start = microtime();
 ?>
-<?php
-	set_include_path('..');
-	include('config/main.php');
-?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,6 +14,13 @@
 		<link rel='stylesheet' type='text/css' href='style/main.css' />
 		<link rel='stylesheet' type='text/css' href='style/tooltip.css' />
 		<link rel='stylesheet' type='text/css' href='style/menu.css' />
+
+		<!-- IPORT JEŻELI INCLUDE JEST DRUGIEGO RZĘDU -->
+
+		<link rel='stylesheet' type='text/css' href='../style/main.css' />
+		<link rel='stylesheet' type='text/css' href='../style/tooltip.css' />
+		<link rel='stylesheet' type='text/css' href='../style/menu.css' />
+
 		<link rel='stylesheet' type='text/css' href='https://bootswatch.com/<?php echo($config['styl']); ?>/bootstrap.min.css' />
 		
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
