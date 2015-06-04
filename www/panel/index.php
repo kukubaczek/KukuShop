@@ -16,7 +16,13 @@
 							echo('
 							
 						      <ul class="nav nav-pills nav-stacked">
-						        <li class="active"><a href="#">Stronga główna</a></li>
+						        <li class="'); 
+						        
+								if(!isset($_GET['page']) || $_GET['page'] == ""){
+									echo('active');
+								}
+						        
+						        echo('"><a href="index.php">Strona główna</a></li>
 						        <li class="dropdown">
 						          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Serwery <span class="caret"></span></a>
 						          <ul class="dropdown-menu">
@@ -33,11 +39,16 @@
 						        </li>
 						        
 						        <!-- USTAWIENIA KONTA -->
+						        <li class="dropdown');
 						        
-						        <li class="dropdown">
+						        if($_GET['page'] == "changepass"){
+							        echo(' active');
+							    }
+						        
+						        echo('">
 						          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Konto <span class="caret"></span></a>
 						          <ul class="dropdown-menu">
-						            <li><a href="#">Zmień hasło</a></li>
+						            <li><a href="index.php?page=changepass">Zmień hasło</a></li>
 						            <li><a href="logout.php">Wyloguj</a></li>
 						          </ul>
 						        </li>
@@ -71,16 +82,37 @@
 						  
 						echo('<meta http-equiv="refresh" content="2; url=zaloguj.php" />');
 				  	}else{
-						echo('
-						  <div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  Strona główna</h3></div>
-						  
-							<div class="panel-body">
+					  	if(!isset($_GET['page']) || $_GET['page'] == ""){
+							echo('
+							  <div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  Strona główna</h3></div>
+							  
+								<div class="panel-body">
+									
+									Witaj w panelu administratora!
 								
-								Witaj w panelu administratora!
-							
+								</div>
 							</div>
-						</div>
-							');
+								');
+						}elseif($_GET['page'] == "changepass"){
+							echo('
+							  <div class="panel-heading">
+									<ol class="breadcrumb">
+									  <li><a>Konto</a></li>
+									  <li class="active">Zmiana hasła</li>
+									</ol>
+								</div>		  
+								<div class="panel-body">
+									
+									');
+									
+									include_once ('change_password.php');
+									
+									echo('
+								
+								</div>
+							</div>
+								');
+						}
 				  	}
 				?>
 		  </div>

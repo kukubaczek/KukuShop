@@ -45,6 +45,7 @@
 						');
 				  	}else{
 					  	
+					  	if($_POST['nick'])
 					  	
 				  		include_once ('../config/mysql.php');
 				  		
