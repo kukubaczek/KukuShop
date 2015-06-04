@@ -1,6 +1,10 @@
 <?php
 	$start = microtime();
 	session_start();
+	if((!file_exists("../config/installed.lck") && !file_exists("/config/installed.lck"))){
+		echo('<center>Panel nie jest zainstalowany!</center>');
+		return ;
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,6 +50,7 @@
 						-->
 						<?php
 							if(isset($_SESSION['nickname'])){
+								echo('<li><a href="'.$config['root'].'panel/index.php">Panel <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>');
 								echo('<li><a href="'.$config['root'].'panel/logout.php">'.$_SESSION['nickname'].' <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>');
 							}
 						?>

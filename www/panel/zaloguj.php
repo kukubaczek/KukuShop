@@ -60,7 +60,23 @@
 						  	$_SESSION['nickname'] = "kukubaczek";
 						  	echo('<meta http-equiv="refresh" content="2; url=index.php" />');
 					  	}else{
-						  	echo("złe dane!");
+						  	echo('
+						  	
+		  <div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  Błędne dane!</h3></div>
+		  
+			<div class="panel-body">
+				
+				<div class="alert alert-danger" role="alert">
+				  Podany użytkownik nie istnieje lub hasło się nie zgadza! Spróbuj ponownie!
+				</div>
+			
+			</div>
+		</div>
+						  	
+						  	');
+						  	
+						  	echo('<meta http-equiv="refresh" content="2; url=zaloguj.php" />');
+						  	
 					  	}
 				  	}
 			  	}
