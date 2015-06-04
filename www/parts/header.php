@@ -1,10 +1,6 @@
 <?php
 	$start = microtime();
 	session_start();
-	if((!file_exists("../config/installed.lck") && !file_exists("/config/installed.lck"))){
-		echo('<center>Panel nie jest zainstalowany!</center>');
-		return ;
-	}
 ?>
 <!DOCTYPE html>
 <html>

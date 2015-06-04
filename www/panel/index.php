@@ -31,6 +31,17 @@
 						            <li><a href="#">Edytuj</a></li>
 						          </ul>
 						        </li>
+						        
+						        <!-- USTAWIENIA KONTA -->
+						        
+						        <li class="dropdown">
+						          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Konto <span class="caret"></span></a>
+						          <ul class="dropdown-menu">
+						            <li><a href="#">Zmień hasło</a></li>
+						            <li><a href="logout.php">Wyloguj</a></li>
+						          </ul>
+						        </li>
+						        
 						        <!-- <li><a href="#">Wyloguj <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li> -->
 						      </ul>
 							
