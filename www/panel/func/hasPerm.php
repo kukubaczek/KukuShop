@@ -1,5 +1,5 @@
 <?php
-	function hasPermission($perms){
+	function hasPermission( $string ){
 		
   		include ('../config/mysql.php');
   		
@@ -11,11 +11,10 @@
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 				if($row['permissions'] == "all") return true;
-				if(strpos($row['permissions'], $perms)){
-					return true;
-				}else{
-					return false;
-				}
+				$pos = strpos($row['permissions'], $string);
+
+				return false;
+
 			}
 		}else{
 			return false;

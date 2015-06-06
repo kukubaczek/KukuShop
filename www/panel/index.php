@@ -25,14 +25,14 @@
 						        echo('"><a href="index.php">Strona główna</a></li>
 						        <li class="dropdown');
 						        
-						        if($_GET['page'] == "serverAdd"){
+						        if($_GET['page'] == "serverAdd" || $_GET['page'] == "serverList"  ){
 							        echo(' active');
 							    }
 						        
 						        echo('">
 						          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Serwery <span class="caret"></span></a>
 						          <ul class="dropdown-menu">
-						            <li><a href="#">Lista</a></li>
+						            <li><a href="?page=serverList">Lista</a></li>
 						            <li><a href="?page=serverAdd">Dodaj</a></li>
 						            <li><a href="#">Edytuj</a></li>
 						          </ul>
@@ -53,8 +53,9 @@
 							    }
 						        
 						        echo('">
-						          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Konto <span class="caret"></span></a>
+						          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Konta <span class="caret"></span></a>
 						          <ul class="dropdown-menu">
+						            <li><a href="?page=accountmanager">Zarządzaj kontami</a></li>
 						            <li><a href="?page=changepass">Zmień hasło</a></li>
 						            <li><a href="logout.php">Wyloguj</a></li>
 						          </ul>
@@ -96,6 +97,26 @@
 								<div class="panel-body">
 									
 									Witaj w panelu administratora!
+								
+								</div>
+							</div>
+								');
+						}elseif($_GET['page'] == "serverList"){
+							echo('
+							  <div class="panel-heading">
+									<ol class="breadcrumb">
+									  <li><a>Serwery</a></li>
+									  <li class="active">Lista</li>
+									</ol>
+								</div>		  
+								<div class="panel-body">
+									
+									');
+									
+									include_once ('parts/list_server.php');
+									getServerList();
+									
+									echo('
 								
 								</div>
 							</div>

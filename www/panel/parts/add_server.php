@@ -3,7 +3,7 @@
 	function getAddServer(){
 		
 		include('func/hasPerm.php');
-		if(hasPermission("kukubaczek", "addServer")){
+		if(hasPermission("addServer")){
 				
 				
 				
