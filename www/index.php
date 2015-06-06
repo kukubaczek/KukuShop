@@ -12,9 +12,15 @@
 			  <ul class="nav nav-pills">
 				<?php
 			  		include_once ('config/mysql.php');
+
 			  		
-					$sql = "SELECT * FROM servers";
-					$result = $conn->query($sql);
+					$stmt = $pdo->prepare('SELECT * FROM employees WHERE name = :name');
+					
+					$stmt->execute(array('name' => $name));
+					
+					foreach ($stmt as $row) {
+					    // do something with $row
+					}
 			  		
 					if ($result->num_rows > 0) {
 						$num = 0;
