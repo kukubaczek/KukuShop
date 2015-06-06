@@ -140,13 +140,25 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Ostatnie zakupy</h3></div>
 			<div class="panel-body">
-				<a class="tooltips" href="#"><img src="https://minotar.net/avatar/clone1018/37.png"><span>clone1018</span></a>
-				<img src="https://minotar.net/avatar/kukubaczeek/37.png">
-				<img src="https://minotar.net/avatar/xnerdian/37.png">
-				<img src="https://minotar.net/avatar/skkf/37.png">
-				<img src="https://minotar.net/avatar/minecraftblow/37.png">
-				<img src="https://minotar.net/avatar/ReziPlayGames/37.png">
-				<img src="https://minotar.net/avatar/viv0/37.png">
+				<?php
+					
+			  		include_once ('config/mysql.php');
+			  		
+					$sql = "SELECT * FROM logi LIMIT 30";
+					$result = $conn->query($sql);
+			  		
+					if ($result->num_rows > 0) {
+						$num = 0;
+						while($row = $result->fetch_assoc()) {
+							echo('
+								<a class="tooltips" href="#"><img src="https://minotar.net/avatar/'.$row['nick'].'/37.png"><span>Gracz: '.$row['nick'].'<br>Usługa: '.$row['usluga'].'<br>Serwer: '.$row['nazwa_serwera'].'<br>Data: N/A</span></a>
+							');
+						}
+					 }else{
+						 echo('Brak zakupionych usług.');
+					 }
+					
+				?>
 			</div>
 		</div>
 		
