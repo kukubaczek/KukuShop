@@ -1,7 +1,7 @@
 		</div> <!- MAIN  >
 		<footer>
 			<!-- ZAKAZ USUWANIE STOPKI! -->
-			<center>Zasilane przez KukuSMS by Kukubaczek.
+			<center>Zasilane przez <a href="https://github.com/kukubaczek/KukuShop" style="color: #f4fbff;">KukuSMS</a> (v.<?php echo($config['ver'])?>) by <a href="http://fb.com/KukubaczekCraft" style="color: white;">Kukubaczek</a>.
 			<br>
 			
 <?php

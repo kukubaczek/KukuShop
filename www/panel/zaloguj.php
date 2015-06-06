@@ -49,8 +49,7 @@
 					  	
 					  		include_once ('../config/mysql.php');
 					  		
-							$sql = sprintf("SELECT * FROM users WHERE nick='%s' LIMIT 1",
-								@mysql_real_escape_string($_POST['nick']));
+							$sql = sprintf("SELECT * FROM users WHERE nick='".$_POST['nick']."' LIMIT 1");
 							$result = $conn->query($sql);
 					  		
 							if ($result->num_rows > 0) {
@@ -81,7 +80,7 @@
 						<div class="panel-body">
 							
 							<div class="alert alert-danger" role="alert">
-							  Podany użytkownik nie istnieje lub hasło się nie zgadza! <br>Spróbuj ponownie!
+							  Podany użytkownik nie istnieje lub hasło się nie zgadza! <br>Spróbuj ponownie!3
 							</div>
 						
 						</div>
@@ -101,7 +100,7 @@
 									<div class="panel-body">
 										
 										<div class="alert alert-danger" role="alert">
-							  Podany użytkownik nie istnieje lub hasło się nie zgadza! <br>Spróbuj ponownie!
+							  Podany użytkownik nie istnieje lub hasło się nie zgadza! <br>Spróbuj ponownie!2
 										</div>
 									
 									</div>
@@ -119,7 +118,7 @@
 								<div class="panel-body">
 									
 									<div class="alert alert-danger" role="alert">
-						  Podany użytkownik nie istnieje lub hasło się nie zgadza! <br>Spróbuj ponownie!
+						  Podany użytkownik nie istnieje lub hasło się nie zgadza! <br>Spróbuj ponownie!1
 									</div>
 								
 								</div>

@@ -34,7 +34,6 @@
 						          <ul class="dropdown-menu">
 						            <li><a href="?page=serverList">Lista</a></li>
 						            <li><a href="?page=serverAdd">Dodaj</a></li>
-						            <li><a href="#">Edytuj</a></li>
 						          </ul>
 						        </li>
 						        <li class="dropdown">
@@ -96,7 +95,10 @@
 							  
 								<div class="panel-body">
 									
-									Witaj w panelu administratora!
+									Witaj w panelu administratora!<br>
+									Po lewej stronie znajduje się menu dzięki któremu możesz w pełni sterować swoim sklepem!<br><br>
+									Twoja wersja: <b>'.$config['ver'].'</b><br>
+									Najnowsza wersja: <b>N/A</b>
 								
 								</div>
 							</div>

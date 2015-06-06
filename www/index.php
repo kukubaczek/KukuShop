@@ -13,7 +13,7 @@
 				<?php
 			  		include_once ('config/mysql.php');
 			  		
-					$sql = "SELECT * FROM servers WHERE status=1";
+					$sql = "SELECT * FROM servers";
 					$result = $conn->query($sql);
 			  		
 					if ($result->num_rows > 0) {

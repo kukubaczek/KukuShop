@@ -39,7 +39,7 @@
 					
 					');
 					
-					echo('<meta http-equiv="refresh" content="2; url=index.php?page=serverList" />');
+					echo('<meta http-equiv="refresh" content="3; url=index.php?page=serverList" />');
 				} else {
 				    echo "Error deleting record: " . mysqli_error($conn);
 				}
@@ -102,6 +102,7 @@
 	    echo('
 	    </tbody>
 	  </table>
+	<a class="btn btn-info" style="float: right;" href="index.php?page=serverAdd">Dodaj serwer</a>
 			');
 			
 		}
