@@ -12,15 +12,9 @@
 			  <ul class="nav nav-pills">
 				<?php
 			  		include_once ('config/mysql.php');
-
 			  		
-					$stmt = $pdo->prepare('SELECT * FROM employees WHERE name = :name');
-					
-					$stmt->execute(array('name' => $name));
-					
-					foreach ($stmt as $row) {
-					    // do something with $row
-					}
+					$sql = "SELECT * FROM servers";
+					$result = $conn->query($sql);
 			  		
 					if ($result->num_rows > 0) {
 						$num = 0;
@@ -80,31 +74,6 @@
 					}else{
 						echo('Brak serwerów w bazie danych.');
 					}
-				    /*<div id="surv" class="tab-pane fade in active">
-				      <h2>Survival</h2>
-					  
-						<div class="row">
-						  <div class="col-md-6">
-							    <div class="thumbnail">
-							      <img src="http://fireland.pl/images/svip.jpg" alt="VIP na 30 dni" id="lista_img_uslug">
-							      <div class="caption">
-							        <h3>VIP na 30 dni</h3>
-							        <p>Ta ranga obowiązuje na wszystkich serwerach w sieci.</p>
-							        <p><span class="btn btn-default">Cena SMS: <b>11.07zł</b></span> <a id="kupuje" href="#" class="btn btn-info" role="button">Kup teraz!</a></p>
-							      </div>
-							    </div>
-						  </div>
-						  <div class="col-md-6">.col-md-6</div>
-						</div>
-				    </div>
-				    <div id="sky" class="tab-pane fade">
-				      <h2>SkyBlock</h2>					
-						
-
-						<div class="row">
-						  <div class="col-md-6">.col-md-6</div>
-						</div>	
-				    </div>*/
 				    ?>
 			  </div>
 			</div>
@@ -118,7 +87,6 @@
 			<div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>  Statystyki</h3></div>
 			<div class="panel-body">
 			  <?php
-			  					  		
 					include "utils/status.php";
 					
 					$result = $conn->query($sql);
