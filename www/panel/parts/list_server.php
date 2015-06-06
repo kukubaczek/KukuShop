@@ -21,11 +21,35 @@
 			
 			');
 		}else{
+			
+			if(isset($_GET['delete_server']) && $_GET['delete_server'] != ""){
+				
+				
+				include('../config/mysql.php');
+				$sql = sprintf("DELETE FROM servers WHERE id=%s",
+					@mysql_real_escape_string($_GET['delete_server']));
+				
+				if (mysqli_query($conn, $sql)) {
+					echo('
+							
+						<div class="alert alert-warning" role="alert">
+						  Serwer o ID: '.$_GET['delete_server'].' został pomyślnie usunięty z bazy danych!
+						</div>			
+					
+					
+					');
+					
+					echo('<meta http-equiv="refresh" content="2; url=index.php?page=serverList" />');
+				} else {
+				    echo "Error deleting record: " . mysqli_error($conn);
+				}
+			}
 		
 			echo('
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
+	      	<th>Nr</th>
 	        <th>Nazwa</th>
 	        <th>ID</th>
 	        <th>IP</th>
@@ -50,6 +74,7 @@
 			echo('
 			
 	      <tr>
+	        <td>'.$row['id'].'</td>	      	
 	        <td>'.$row['nazwa'].'</td>
 	        <td>'.$row['server_id'].'</td>
 	        <td>'.$row['ip'].'</td>
@@ -59,7 +84,8 @@
 	        <td>
 	        
 				<div class="btn-group" role="group" aria-label="...">
-				  <button type="button" class="btn btn-danger">Usuń</button>
+					<a class="btn btn-danger" href="index.php?page=serverList&delete_server='.$row['id'].'">Usuń</a>
+				<!--  <form action="index.php?page=serverList&delete_server='.$row['id'].'"><input type="submit" class="btn btn-danger" value="Usuń"></input></form>-->
 				  <button type="button" class="btn btn-default">Edytuj</button>
 				</div>
 	        
