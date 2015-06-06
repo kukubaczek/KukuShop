@@ -23,10 +23,17 @@
 								}
 						        
 						        echo('"><a href="index.php">Strona główna</a></li>
-						        <li class="dropdown">
+						        <li class="dropdown');
+						        
+						        if($_GET['page'] == "serverAdd"){
+							        echo(' active');
+							    }
+						        
+						        echo('">
 						          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Serwery <span class="caret"></span></a>
 						          <ul class="dropdown-menu">
-						            <li><a href="#">Dodaj</a></li>
+						            <li><a href="#">Lista</a></li>
+						            <li><a href="?page=serverAdd">Dodaj</a></li>
 						            <li><a href="#">Edytuj</a></li>
 						          </ul>
 						        </li>
@@ -48,7 +55,7 @@
 						        echo('">
 						          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Konto <span class="caret"></span></a>
 						          <ul class="dropdown-menu">
-						            <li><a href="index.php?page=changepass">Zmień hasło</a></li>
+						            <li><a href="?page=changepass">Zmień hasło</a></li>
 						            <li><a href="logout.php">Wyloguj</a></li>
 						          </ul>
 						        </li>
@@ -68,7 +75,7 @@
 				  	if(!isset($_SESSION['nickname'])){
 						
 					echo('
-					  <div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  Brak permisji!</h3></div>
+					  <div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  Brak uprawnień!</h3></div>
 					  
 						<div class="panel-body">
 							
@@ -93,9 +100,30 @@
 								</div>
 							</div>
 								');
+						}elseif($_GET['page'] == "serverAdd"){
+							echo('
+							  <div class="panel-heading">
+									<ol class="breadcrumb">
+									  <li><a>Serwery</a></li>
+									  <li class="active">Dodaj</li>
+									</ol>
+								</div>		  
+								<div class="panel-body">
+									
+									');
+									
+									include_once ('parts/add_server.php');
+									getAddServer();
+									
+									echo('
+								
+								</div>
+							</div>
+								');
 						}elseif($_GET['page'] == "changepass"){
 							echo('
 							  <div class="panel-heading">
+							  <!-- <br><h3 class="panel-title"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  Zmiana hasła</h3><br> -->
 									<ol class="breadcrumb">
 									  <li><a>Konto</a></li>
 									  <li class="active">Zmiana hasła</li>
@@ -105,7 +133,8 @@
 									
 									');
 									
-									include_once ('change_password.php');
+									include_once ('parts/change_password.php');
+									getChangePass();
 									
 									echo('
 								

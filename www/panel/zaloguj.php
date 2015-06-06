@@ -49,7 +49,8 @@
 					  	
 					  		include_once ('../config/mysql.php');
 					  		
-							$sql = "SELECT * FROM users WHERE nick='".$_POST['nick']."' LIMIT 1";
+							$sql = sprintf("SELECT * FROM users WHERE nick='%s' LIMIT 1",
+								@mysql_real_escape_string($_POST['nick']));
 							$result = $conn->query($sql);
 					  		
 							if ($result->num_rows > 0) {
@@ -70,7 +71,7 @@
 										');
 									  	$_SESSION['nickname'] = $_POST['nick'];
 									  	echo('<meta http-equiv="refresh" content="2; url=index.php" />');
-									  	$sql = "UPDATE `users` SET `lastLogin` = '".time()."' WHERE `nick` = 'kukubaczek';";
+									  	$sql = "UPDATE `users` SET `lastLogin` = '".time()."' WHERE `nick` = '".$_POST['nick']."';";
 									  	$conn->query($sql);
 								  	}else{
 									  	echo('
