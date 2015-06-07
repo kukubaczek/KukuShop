@@ -62,7 +62,7 @@
 											<div class="panel-body">
 												
 												<div class="alert alert-success" role="alert">
-												  Pomyślnie się zalogowałeś! Przenoszenie do panelu administratora!
+												  Pomyślnie się zalogowałeś! Przenoszenie do panelu administratora!
 												</div>
 											
 											</div>
@@ -80,7 +80,7 @@
 						<div class="panel-body">
 							
 							<div class="alert alert-danger" role="alert">
-							  Podany użytkownik nie istnieje lub hasło się nie zgadza! <br>Spróbuj ponownie!3
+							  Podany użytkownik nie istnieje lub hasło się nie zgadza! <br>Spróbuj ponownie!
 							</div>
 						
 						</div>
@@ -100,7 +100,7 @@
 									<div class="panel-body">
 										
 										<div class="alert alert-danger" role="alert">
-							  Podany użytkownik nie istnieje lub hasło się nie zgadza! <br>Spróbuj ponownie!2
+							  Podany użytkownik nie istnieje lub hasło się nie zgadza! <br>Spróbuj ponownie!
 										</div>
 									
 									</div>
@@ -118,7 +118,7 @@
 								<div class="panel-body">
 									
 									<div class="alert alert-danger" role="alert">
-						  Podany użytkownik nie istnieje lub hasło się nie zgadza! <br>Spróbuj ponownie!1
+						  Podany użytkownik nie istnieje lub hasło się nie zgadza! <br>Spróbuj ponownie!
 									</div>
 								
 								</div>

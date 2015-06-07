@@ -24,24 +24,35 @@
 			
 			if(isset($_GET['delete_server']) && $_GET['delete_server'] != ""){
 				
+				if(is_numeric($_GET['delete_server'])){
 				
-				include('../config/mysql.php');
-				$sql = sprintf("DELETE FROM servers WHERE id=%s",
-					@mysql_real_escape_string($_GET['delete_server']));
-				
-				if (mysqli_query($conn, $sql)) {
-					echo('
-							
-						<div class="alert alert-warning" role="alert">
-						  Serwer o ID: '.$_GET['delete_server'].' został pomyślnie usunięty z bazy danych!
-						</div>			
+					include('../config/mysql.php');
+					$sql = "DELETE FROM servers WHERE id=".$_GET['delete_server'];
 					
-					
-					');
-					
-					echo('<meta http-equiv="refresh" content="3; url=index.php?page=serverList" />');
-				} else {
-				    echo "Error deleting record: " . mysqli_error($conn);
+					if (mysqli_query($conn, $sql)) {
+						echo('
+								
+							<div class="alert alert-warning" role="alert">
+							  Serwer o ID: '.$_GET['delete_server'].' został pomyślnie usunięty z bazy danych!
+							</div>			
+						
+						
+						');
+						
+						echo('<meta http-equiv="refresh" content="3; url=index.php?page=serverList" />');
+					} else {
+					    echo "Error deleting record: " . mysqli_error($conn);
+					}
+				}else{
+						echo('
+								
+							<div class="alert alert-danger" role="alert">
+							  ID serwera musi być cyfrą!
+							</div>			
+						
+						
+						');
+						echo('<meta http-equiv="refresh" content="3; url=index.php?page=serverList" />');
 				}
 			}
 		

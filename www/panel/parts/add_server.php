@@ -21,19 +21,12 @@
 						echoForm();
 					}else{
 						
-						if(is_numeric($_POST['port_q']) && is_numeric($_POST['port_r'])){
+						if(is_numeric($_POST['port_q']) && is_numeric($_POST['port_r']) && ctype_alnum($_POST['nazwa']) && ctype_alnum($_POST['serv_id']) && ctype_alnum($_POST['pass_r']) && (ip2long($_POST['serv_ip']) !== false)){
 							
 							include('../config/mysql.php');
 							
-							$sql = sprintf("INSERT INTO servers (server_id, nazwa, ip, port_query, port_rcon, pasw_rcon)
-							VALUES ('%s', '%s', '%s',  '%s',  '%s',  '%s')",
-								@mysql_real_escape_string($_POST['serv_id']),
-								@mysql_real_escape_string($_POST['nazwa']),
-								@mysql_real_escape_string($_POST['serv_ip']),
-								@mysql_real_escape_string($_POST['port_q']),
-								@mysql_real_escape_string($_POST['port_r']),
-								@mysql_real_escape_string($_POST['pass_r'])
-								);
+							$sql = "INSERT INTO servers (server_id, nazwa, ip, port_query, port_rcon, pasw_rcon)
+							VALUES ('".$_POST['serv_id']."', '".$_POST['nazwa']."', '".$_POST['serv_ip']."',  '".$_POST['port_q']."',  '".$_POST['port_r']."',  '".$_POST['pass_r']."')";
 						
 							if ($conn->query($sql) === TRUE) {
 								echo('
@@ -57,7 +50,7 @@
 							echo('
 							
 							<div class="alert alert-danger" role="alert">
-							  Porty muszą być cyframi!
+							  Porty muszą być cyframi, nazwa, ID serwera oraz hasło RCON nie może zawierać znaków specjalnych, lub IP jest nie poprawne.
 							</div>
 							
 							');
