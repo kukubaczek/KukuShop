@@ -33,13 +33,11 @@
 				?>
 			  </ul>
 			  
-			  <div class="tab-content" id="uslugi">	
+			  <div class="tab-content" id="uslugi">
 				  <?php	
-					$result = $conn->query($sql);
-					if ($result->num_rows > 0) {
-						
-						$num = 0;
-						
+					  $result = $conn->query($sql);
+					if ($result->num_rows > 0) {	
+						$num = 0;					
 						while($row = $result->fetch_assoc()) {
 							echo('
 							
@@ -50,26 +48,45 @@
 									$num++;
 								}
 								
+								$sql2 = "SELECT * FROM services WHERE server_id='".$row['server_id']."'";
+								$result2 = $conn->query($sql2);
+								
 								echo('">
-									<h2>'.$row['nazwa'].'</h2>
-									
+									<h2>'.$row['nazwa'].'</h2>									
 									<div class="row">
+								');
+								if ($result2->num_rows > 0) {				
+									while($usluga = $result2->fetch_assoc()) {
+										
+										
+										echo('
+										
 										<div class="col-md-6">
 											<div class="thumbnail">
-												<img src="http://fireland.pl/images/svip.jpg" alt="VIP na 30 dni" id="lista_img_uslug">
+												<img src="'.$usluga['img'].'" alt="'.$usluga['nazwa'].'" id="lista_img_uslug">
 												<div class="caption">
-													<h3>VIP na 30 dni</h3>
+													<h3>'.$usluga['nazwa'].'</h3>
 													<p>Ta ranga obowiązuje na wszystkich serwerach w sieci.</p>
-													<p><span class="btn btn-info">Cena SMS: <b>11.07zł</b></span> <a id="kupuje" href="#" class="btn btn-success" role="button">Kup teraz!</a></p>
+													<p><span class="btn btn-info">Cena SMS: <b>'.$usluga['koszt_sms'].' zł</b></span> <a id="kupuje" href="#" class="btn btn-success" role="button">Kup teraz!</a></p>
 												</div>
 											</div>
 										</div>
-										<div class="col-md-6">//TO-DO - dynamiczne usługi</div>
+										
+										');
+										
+										
+									}
+								}else{
+									echo('<div class="alert alert-warning" role="alert" style="margin: 10px;">Nie znaleziono aktywnych usług dla tego serwera!</div>');
+								}
+										
+							echo('
 									</div>
 								</div>
 
 							
 							');
+
 						}
 					}else{
 						echo('Brak serwerów w bazie danych.');
@@ -118,7 +135,7 @@
 					
 			  		include_once ('config/mysql.php');
 			  		
-					$sql = "SELECT * FROM logi LIMIT 30";
+					$sql = "SELECT * FROM logi LIMIT 64";
 					$result = $conn->query($sql);
 			  		
 					if ($result->num_rows > 0) {
