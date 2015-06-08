@@ -66,7 +66,7 @@
 												<img src="'.$usluga['img'].'" alt="'.$usluga['nazwa'].'" id="lista_img_uslug">
 												<div class="caption">
 													<h3>'.$usluga['nazwa'].'</h3>
-													<p>Ta ranga obowiązuje na wszystkich serwerach w sieci.</p>
+													<p>'.$usluga['krotki_opis'].'</p>
 													<p><span class="btn btn-info">Cena SMS: <b>'.$usluga['koszt_sms'].' zł</b></span> <a id="kupuje" href="#" class="btn btn-success" role="button">Kup teraz!</a></p>
 												</div>
 											</div>
