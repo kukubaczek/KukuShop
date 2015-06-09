@@ -11,21 +11,31 @@
 		<!- KODOWANIE, STYL >
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<link rel='stylesheet' type='text/css' href='style/main.css' />
-		<link rel='stylesheet' type='text/css' href='style/tooltip.css' />
-		<link rel='stylesheet' type='text/css' href='style/menu.css' />
 
 		<!-- IPORT JEŻELI INCLUDE JEST DRUGIEGO RZĘDU -->
 
+		<?php
+			if(file_exists('../style/main.css')){
+				echo("
 		<link rel='stylesheet' type='text/css' href='../style/main.css' />
 		<link rel='stylesheet' type='text/css' href='../style/tooltip.css' />
 		<link rel='stylesheet' type='text/css' href='../style/menu.css' />
+				");
+			}else{
+				echo("
+		<link rel='stylesheet' type='text/css' href='style/main.css' />
+		<link rel='stylesheet' type='text/css' href='style/tooltip.css' />
+		<link rel='stylesheet' type='text/css' href='style/menu.css' />
+				");
+			}
+		?>
 
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-		<link rel='stylesheet' type='text/css' href='https://bootswatch.com/<?php echo($config['styl']); ?>/bootstrap.min.css' />
-		
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel='stylesheet' type='text/css' href='https://bootswatch.com/<?php echo($config['styl']); ?>/bootstrap.min.css' />
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	

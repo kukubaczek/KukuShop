@@ -35,6 +35,7 @@
 			  
 			  <div class="tab-content" id="uslugi">
 				  <?php	
+						include('payments/main.php');
 					  $result = $conn->query($sql);
 					if ($result->num_rows > 0) {	
 						$num = 0;					
@@ -84,6 +85,31 @@
 									        </div>
 									        <div class="modal-body">
 									          <p>Aby zakupić usługę <b>'.$usluga['nazwa'].'</b> należy wysłać SMS o treści <b>'.$usluga['tresc'].'</b> pod numer <b>'.$usluga['numer'].'</b>. <br>Koszt brutto wysłania SMS\'a wynosi <b>'.$usluga['koszt_sms'].' zł.</b></p>
+												<div class="row">
+												  <div class="col-md-6">
+														<form method="POST" action="kup.php">
+														  <div class="form-group">
+														    <label for="nick">Nick</label>
+														    <input type="text" class="form-control" id="nick" name="nick" placeholder="Podaj nick" >
+														  </div>
+														  <div class="form-group">
+														    <label for="code">Kod</label>
+														    <input type="text" class="form-control" id="code" name="code" placeholder="Podaj kod z SMS\'a">
+														  </div>
+														  <button type="submit" class="btn btn-default" style="float: right;">Zatwierdź</button>
+														</form>
+												  </div>
+												  <div class="col-md-6">
+												  	<img src="'.$usluga['img'].'" alt="'.$usluga['nazwa'].'" id="lista_img_uslug">
+												  </div>
+												</div><br><br><br>
+												<div class="row">
+													<div class="well well-sm" style="margin: auto 20px;">
+														');
+															getOpis($usluga['payment']);
+														echo('
+													</div>
+												</div>							          
 									        </div>
 									        <div class="modal-footer">
 									          <button type="button" class="btn btn-warning" data-dismiss="modal">Zamknij</button>

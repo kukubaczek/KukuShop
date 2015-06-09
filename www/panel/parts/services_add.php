@@ -21,22 +21,22 @@
 						echoServiceForm();
 					}else{
 						
-						if(ctype_alnum($_POST['nazwa']) && ctype_alnum($_POST['serwer_id']) && ctype_alnum($_POST['id_uslugi']) && is_integer($_POST['sms_numer'])){
+						if(ctype_alnum($_POST['nazwa'])){
 							
 							include('../config/mysql.php');
 							
-							$sql = "INSERT INTO servers (server_id, nazwa, ip, port_query, port_rcon, pasw_rcon)
-							VALUES ('".$_POST['serv_id']."', '".$_POST['nazwa']."', '".$_POST['serv_ip']."',  '".$_POST['port_q']."',  '".$_POST['port_r']."',  '".$_POST['pass_r']."')";
+							$sql = "INSERT INTO services (server_id, nazwa, tresc, numer, koszt_sms, payment, acc_api, param, krotki_opis, img)
+							VALUES ('".$_POST['serwer_id']."', '".$_POST['nazwa']."', '".$_POST['sms_tresc']."',  '".$_POST['sms_numer']."',  '".$_POST['sms_cena']."',  '".$_POST['payment_id']."',  '".$_POST['api_konta']."',  '".$_POST['api_sms']."',  '".$_POST['opis']."',  '".$_POST['zdjecie']."')";
 						
 							if ($conn->query($sql) === TRUE) {
 								echo('
 										<div class="alert alert-success" role="alert">
-										  Nowy serwer został dodany!<br>
-										  Możesz teraz przystąpić do dodawania usług.
+										  Usługa została dodana!<br>
+										  Możesz teraz przystąpić do testowania!
 										</div>
 								');
 								
-								echo('<meta http-equiv="refresh" content="3; url=index.php?page=serverList" />');
+								echo('<meta http-equiv="refresh" content="3; url=index.php" />');
 								
 							} else {
 								echo('
@@ -87,8 +87,8 @@
 						    <input type="text" class="form-control" name="id_uslugi" id="id_uslugi" placeholder="np.: vip30">
 						  </div>
 						<div class="form-group">
-						  <label for="sel1">Wybierz serwer</label>
-						  <select class="form-control" id="sel1" name="serwer_id">
+						  <label for="serwer_id">Wybierz serwer</label>
+						  <select class="form-control" id="serwer_id" name="serwer_id">
 						  	');
 						  	
 						  	//   <option>surv (Survival)</option>
@@ -119,7 +119,7 @@
 						  </div>
 						<div class="form-group">
 						  <label for="sel1">Wybór płatności</label>
-						  <select class="form-control" id="sel1" name="payment">
+						  <select class="form-control" id="sel1" name="payment_id">
 						  		<option value="microsms">MicroSMS.pl</option>
 						  		<option value="profitsms">ProfitSMS.pl (OFF)</option>
 						  		<option value="cashbill">CashBill.pl (OFF)</option>
