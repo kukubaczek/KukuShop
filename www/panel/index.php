@@ -36,11 +36,17 @@
 						            <li><a href="?page=serverAdd">Dodaj</a></li>
 						          </ul>
 						        </li>
-						        <li class="dropdown">
+						        <li class="dropdown');
+						        
+						        if($_GET['page'] == "serviceAdd"){
+							        echo(' active');
+							    }
+						        
+						        echo('">
 						          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usługi <span class="caret"></span></a>
 						          <ul class="dropdown-menu">
-						            <li><a href="#">Dodaj</a></li>
-						            <li><a href="#">Edytuj</a></li>
+						            <li><a href="#">Lista</a></li>
+						            <li><a href="?page=serviceAdd">Dodaj</a></li>
 						          </ul>
 						        </li>
 						        
@@ -97,8 +103,9 @@
 									
 									Witaj w panelu administratora!<br>
 									Po lewej stronie znajduje się menu dzięki któremu możesz w pełni sterować swoim sklepem!<br><br>
-									Twoja wersja: <b>'.$config['ver'].'</b><br>
-									Najnowsza wersja: <b>N/A</b>
+									Twoja wersja: <b>'.$config['ver'].'</b>.<br>
+									Najnowsza wersja: <b>N/A</b>.<br><br>
+									Posiadasz permisje do: <b>N/A</b>.
 								
 								</div>
 							</div>
@@ -137,6 +144,26 @@
 									
 									include_once ('parts/add_server.php');
 									getAddServer();
+									
+									echo('
+								
+								</div>
+							</div>
+								');
+						}elseif($_GET['page'] == "serviceAdd"){
+							echo('
+							  <div class="panel-heading">
+									<ol class="breadcrumb">
+									  <li><a>Usługi</a></li>
+									  <li class="active">Dodaj</li>
+									</ol>
+								</div>		  
+								<div class="panel-body">
+									
+									');
+									
+									include_once ('parts/services_add.php');
+									getAddService();
 									
 									echo('
 								

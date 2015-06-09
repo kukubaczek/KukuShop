@@ -67,10 +67,32 @@
 												<div class="caption">
 													<h3>'.$usluga['nazwa'].'</h3>
 													<p>'.$usluga['krotki_opis'].'</p>
-													<p><span class="btn btn-info">Cena SMS: <b>'.$usluga['koszt_sms'].' zł</b></span> <a id="kupuje" href="#" class="btn btn-success" role="button">Kup teraz!</a></p>
+													<p><span class="btn btn-info">Cena SMS: <b>'.$usluga['koszt_sms'].' zł</b></span> <button id="kupuje" type="button" class="btn btn-success" data-toggle="modal" data-target="#'.$row['server_id'].'-'.$usluga['id'].'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Kup teraz</button></p>
 												</div>
 											</div>
 										</div>
+										
+									  <!-- Modal -->
+									  <div class="modal fade" id="'.$row['server_id'].'-'.$usluga['id'].'" role="dialog">
+									    <div class="modal-dialog">
+									    
+									      <!-- Modal content-->
+									      <div class="modal-content">
+									        <div class="modal-header">
+									          <button type="button" class="close" data-dismiss="modal">&times;</button>
+									          <h4 class="modal-title">'.$usluga['nazwa'].' <small> Serwer: '.$row['nazwa'].'</small></h4>
+									        </div>
+									        <div class="modal-body">
+									          <p>Aby zakupić usługę <b>'.$usluga['nazwa'].'</b> należy wysłać SMS o treści <b>'.$usluga['tresc'].'</b> pod numer <b>'.$usluga['numer'].'</b>. <br>Koszt brutto wysłania SMS\'a wynosi <b>'.$usluga['koszt_sms'].' zł.</b></p>
+									        </div>
+									        <div class="modal-footer">
+									          <button type="button" class="btn btn-warning" data-dismiss="modal">Zamknij</button>
+									        </div>
+									      </div>
+									      
+									    </div>
+									  </div>
+
 										
 										');
 										

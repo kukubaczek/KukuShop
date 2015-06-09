@@ -22,10 +22,15 @@
 		<link rel='stylesheet' type='text/css' href='../style/tooltip.css' />
 		<link rel='stylesheet' type='text/css' href='../style/menu.css' />
 
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
 		<link rel='stylesheet' type='text/css' href='https://bootswatch.com/<?php echo($config['styl']); ?>/bootstrap.min.css' />
 		
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script><style></style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
+	<script src="http://cookiealert.sruu.pl/CookieAlert-latest.min.js"></script>
+	<script>CookieAlert.init();</script>
 		
 	</head>
 	<body>
@@ -35,7 +40,7 @@
 		<div id="main">
 			<div class='cssmenu'>
 					<ul>
-						<li class='active'><a href='<?php echo($config['root'].'index.php'); ?>'><?php echo($config['nazwa']); ?></a></li>
+						<li class='active'><a href='<?php echo($config['root'].'index.php'); ?>'><span class="glyphicon glyphicon-home" aria-hidden="true"></span> <?php echo($config['nazwa']); ?></a></li>
 						<!--
 							
 							Tutaj możesz dodać swoje zakładki
@@ -46,8 +51,8 @@
 						-->
 						<?php
 							if(isset($_SESSION['nickname'])){
-								echo('<li><a href="'.$config['root'].'panel/index.php">Panel <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>');
-								echo('<li><a href="'.$config['root'].'panel/logout.php">'.$_SESSION['nickname'].' <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>');
+								echo('<li><a href="'.$config['root'].'panel/index.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel</a></li>');
+								echo('<li><a href="'.$config['root'].'panel/logout.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> '.$_SESSION['nickname'].'</a></li>');
 							}
 						?>
 						<li class='last'><a href='#voucher_modal'>Użyj Voucher.</a></li>
