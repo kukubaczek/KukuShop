@@ -1,6 +1,7 @@
 <?php
 	include ('config/main.php');
 	include ('config/mysql.php');
+	include('payments/main.php');
 	require_once('parts/header.php');
 ?>
 
@@ -15,10 +16,25 @@
 						if(!ctype_alnum($_POST['code'])){
 							echo('<div class="alert alert-danger" role="alert">Kod zawiera nie dozwolone znaki!</div>');	
 						}else{
-							if(!preg_match('#[a-zA-Z0-9_]+#', $_POST['nick'])){
+							if(!ctype_alnum($_POST['id'])){
 								echo('<div class="alert alert-danger" role="alert">Nick zawiera nie dozwolone znaki!</div>');		
 							}else{
-								
+						  		include_once ('config/mysql.php');
+						  		
+								$sql = "SELECT * FROM services WHERE id=" . $_POST['id'];
+								$result = $conn->query($sql);
+						  		
+								if ($result->num_rows > 0) {
+									while($row = $result->fetch_assoc()) {
+										if(checkCode( $row['payment'], $_POST['code'], $row['acc_api'], $row['param'] )){
+											echo('test');
+										}else{
+											echo('zły kod');
+										}
+									}
+								}else{
+									echo('<div class="alert alert-danger" role="alert">Usługa jest nie dostępna!</div>');											
+								}
 							}
 						}
 					}

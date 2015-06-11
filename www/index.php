@@ -96,6 +96,7 @@
 														    <label for="code">Kod</label>
 														    <input type="text" class="form-control" id="code" name="code" placeholder="Podaj kod z SMS\'a">
 														  </div>
+														    <input type="hidden" name="id" value="'.$usluga['id'].'">
 														  <button type="submit" class="btn btn-default" style="float: right;">Zatwierdź</button>
 														</form>
 												  </div>
