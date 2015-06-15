@@ -121,7 +121,7 @@
 						  <label for="sel1">Wybór płatności</label>
 						  <select class="form-control" id="sel1" name="payment_id">
 						  		<option value="microsms">MicroSMS.pl</option>
-						  		<option value="profitsms">ProfitSMS.pl (OFF)</option>
+						  		<option value="profitsms">ProfitSMS.pl</option>
 						  		<option value="cashbill">CashBill.pl (OFF)</option>
 						  		<option value="homepay">HomePay.pl (OFF)</option>
 						  </select>

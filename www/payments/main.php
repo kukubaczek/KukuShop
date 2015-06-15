@@ -1,4 +1,5 @@
 <?php
+	
 	function getOpis($payment){
 		if($payment == "microsms"){
 			echo('
@@ -7,37 +8,52 @@
 					Jeśli nie dostałeś kodu zwrotnego w ciągu 30 minut skorzystaj z formularza reklamacyjnego.<br>
 					<img src="http://microsms.pl/public/cms/img/banner.png" style="width: 100%;">
 			');
-		}else{
+		}else if( $payment == "profitsms" ){
+			echo('
+					Płatności zapewnia firma ProfitSMS.<br>
+					Regulamin usług znajdziesz tutaj.<br>
+					Jeśli nie dostałeś kodu zwrotnego w ciągu 30 minut skorzystaj z formularza reklamacyjnego.<br>
+					<img src="payments/profitsms.jpg" style="width: 100%;">
+			');
+		}
+		else{
 			echo('Wystąpił błąd w wyborze metody płatności!');
 		}
 	}
 	
-	function checkCode( $payment, $code, $accToken, $smsToken ){
-		if($payment == "microsms"){
+	function checkCode( $payment, $code, $accToken, $smsToken, $number )
+	{		
+		if ( $payment == "microsms" ) {
 			
-			$handle = fopen("http://microsms.pl/api/check_multi.php?userid=" . $accToken . "&code=" . $code . '&serviceid=' . $smsToken, 'r');
-			$check  = fgetcsv($handle, 1024);
-			fclose($handle);
+			$handle = fopen( "http://microsms.pl/api/check.php?userid=" . $accToken . "&code=" . $code . '&serviceid=' . $smsToken . '&number=' . $number, 'r' );
+			$check  = fgetcsv( $handle, 1024 );
+			fclose( $handle );
 			
-			if ($check[0] != 'E') {
+			if ( $check[ 0 ] != 'E' ) {
 				
-				if ($check[0] == 1) {
-					echo 'Zakupiłeś produkt!';
+				if ( $check[ 0 ] == 1 ) {
 					return true;
-					// 
-					// Dalsza czesc Twojego kodu...
-					//
-				} else {
-					echo 'Podany kod jest nieprawidlowy.';
+				} //$check[ 0 ] == 1
+				else {
 					return false;
 				}
-			} else {
-				echo 'Nieprawidlowo skonfigurowana usluga, skontaktuj sie z administratorem sklepu.';
+			} //$check[ 0 ] != 'E'
+			else {
 				return false;
 			}
 			
-		}else{
-			echo('Wystąpił błąd w wyborze metody płatności!');
+		}else if( $payment == "profitsms" ){
+			$handle = fopen("http://profitsms.pl/check.php?apiKey=".$accToken."&code=".$code."&smsNr=".$number, 'r' );
+			$check  = fgetcsv( $handle, 1024 );
+			fclose( $handle );
+			if($check[0] == '1'){
+				return true;
+			}else{
+				return false;
+			}
+			
+		}
+		else {
 			return false;
 		}
 	}

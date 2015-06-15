@@ -3,6 +3,7 @@
 	include ('config/mysql.php');
 	include('payments/main.php');
 	require_once('parts/header.php');
+	
 ?>
 
 	<div class="row">
@@ -26,10 +27,15 @@
 						  		
 								if ($result->num_rows > 0) {
 									while($row = $result->fetch_assoc()) {
-										if(checkCode( $row['payment'], $_POST['code'], $row['acc_api'], $row['param'] )){
-											echo('test');
+										if(checkCode( $row['payment'], $_POST['code'], $row['acc_api'], $row['param'],$row['numer'] )){
+											echo ('<div class="alert alert-success" role="alert">
+												Podany kod jest prawidłowy... Aktywuję usługę!
+											</div>');
 										}else{
-											echo('zły kod');
+											echo ('<div class="alert alert-danger" role="alert">
+												Podany kod jest nie poprawny lub usługa została nie prawidłowo skonfigurowana.<br>
+												Spróbuj ponownie, może się pomyliłeś przepisując kod.
+											</div>');
 										}
 									}
 								}else{
